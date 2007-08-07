@@ -3,15 +3,15 @@
 %define release %mkrel 1
 
 Summary:  Xorp is an Open Router Platform
-Name: %{name}
+Name:    %{name}
 Version: %{version}
 Release: %{release}
 Source0: %{name}-%{version}.tar.bz2
 License: BSD
-Group: Networking/Other
-Url: http://www.xorp.or
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-
+Group:   Networking/Other
+Url:     http://www.xorp.org
+BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires: openssl-devel
 
 %description
 XORP is an open router platform being developed at the ICSI Center for
