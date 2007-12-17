@@ -10,7 +10,6 @@ Source0: %{name}-%{version}.tar.bz2
 License: BSD
 Group:   Networking/Other
 Url:     http://www.xorp.org
-BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: openssl-devel
 
 %description
