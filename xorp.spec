@@ -2,7 +2,7 @@
 %define version 1.4
 %define release %mkrel 1
 
-Summary:  Xorp is an Open Router Platform
+Summary:  Open Router Platform
 Name:    %{name}
 Version: %{version}
 Release: %{release}
