@@ -1,6 +1,6 @@
 %define name xorp
 %define version 1.4
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary:  Open Router Platform
 Name:    %{name}
