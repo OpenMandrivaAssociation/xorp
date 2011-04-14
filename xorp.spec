@@ -42,9 +42,11 @@ functionality, including support for custom hardware and software forwarding.
 
 
 %build
-export CXXFLAGS="-Wunused-but-set-variable"
-export CFLAGS="-Wunused-but-set-variable"
+
+#export CXXFLAGS='-Wunused-but-set-variable'
 scons -j4 \
+    CFLAGS='-Wunused-but-set-variable' \
+    CXXFLAGS='-Wunused-but-set-variable' \
                                 DESTDIR=${RPM_BUILD_ROOT}     \
                                 sbindir=%{_sbindir}           \
                                 prefix=%{prefixdir}           \
