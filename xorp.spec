@@ -1,4 +1,4 @@
-%define Werror_cflags unused-but-set-variable
+#define Werror_cflags %nil
 #define _disable_ld_no_undefined 1
 
 # configure options
@@ -41,8 +41,9 @@ functionality, including support for custom hardware and software forwarding.
 %setup -q -n xorp
 
 
-%build 
-
+%build
+export CXXFLAGS="-Wunused-but-set-variable"
+export CFLAGS="-Wunused-but-set-variable"
 scons -j4 \
                                 DESTDIR=${RPM_BUILD_ROOT}     \
                                 sbindir=%{_sbindir}           \
