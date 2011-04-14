@@ -1,6 +1,3 @@
-#define Werror_cflags %nil
-#define _disable_ld_no_undefined 1
-
 # configure options
 %define with_shared	1
 %define with_optimize	1
@@ -28,6 +25,7 @@ Requires(postun): /sbin/service
 BuildRequires:    libpcap-devel ncurses-devel
 BuildRequires:    scons openssl-devel python
 
+Patch0:		SConstruct.diff
 
 %description
 XORP is an extensible open-source routing platform. Designed for extensibility
@@ -39,30 +37,26 @@ functionality, including support for custom hardware and software forwarding.
 
 %prep
 %setup -q -n xorp
-
+%patch0 -p0 -b .warn
 
 %build
 
-#export CXXFLAGS='-Wunused-but-set-variable'
 scons -j4 \
-    CFLAGS='-Werror -Wunused-but-set-variable' \
-    CXXFLAGS='-Werror -Wunused-but-set-variable' \
-                                DESTDIR=${RPM_BUILD_ROOT}     \
-                                sbindir=%{_sbindir}           \
-                                prefix=%{prefixdir}           \
-                                libexecdir=%{_libexecdir}     \
-                                sysconfdir=%{_sysconfdir}     \
-                                xorp_confdir=%{_sysconfdir}   \
-                                localstatedir=%{_localstatedir} \
-				ignore_check_errors=yes \
+    DESTDIR=${RPM_BUILD_ROOT}     \
+    sbindir=%{_sbindir}           \
+    prefix=%{prefixdir}           \
+    libexecdir=%{_libexecdir}     \
+    sysconfdir=%{_sysconfdir}     \
+    xorp_confdir=%{_sysconfdir}   \
+    localstatedir=%{_localstatedir} \
 %if %with_shared
-  shared=yes \
+    shared=yes \
 %endif
 %if %with_optimize
-  optimize=yes \
+    optimize=yes \
 %endif
 %if %with_strip
-  strip=yes \
+    strip=yes
 %endif
 
 
@@ -74,24 +68,24 @@ scons -j4 \
 %{__mkdir_p} ${RPM_BUILD_ROOT}%{_datadir}/xorp
 
 scons \
-				DESTDIR=${RPM_BUILD_ROOT}     \
-				sbindir=%{_sbindir}           \
-                                prefix=%{prefixdir}           \
-				libexecdir=%{_libexecdir}     \
-				sysconfdir=%{_sysconfdir}     \
-				xorp_confdir=%{_sysconfdir}   \
-				localstatedir=%{_localstatedir} \
-				ignore_check_errors=yes \
+    DESTDIR=${RPM_BUILD_ROOT}     \
+    sbindir=%{_sbindir}           \
+    prefix=%{prefixdir}           \
+    libexecdir=%{_libexecdir}     \
+    sysconfdir=%{_sysconfdir}     \
+    xorp_confdir=%{_sysconfdir}   \
+    localstatedir=%{_localstatedir} \
+    ignore_check_errors=yes \
 %if %with_shared
-  shared=yes \
+    shared=yes \
 %endif
 %if %with_optimize
-  optimize=yes \
+    optimize=yes \
 %endif
 %if %with_strip
-  strip=yes \
+    strip=yes \
 %endif
-				install
+    install
 
 %{__install} -m 0755 %{SOURCE1}           ${RPM_BUILD_ROOT}%{_initrddir}/xorp
 %{__install} -m 0644 %{SOURCE2}           ${RPM_BUILD_ROOT}%{_sysconfdir}/sysconfig/xorp
