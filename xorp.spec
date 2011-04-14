@@ -1,4 +1,4 @@
-#define Werror_cflags %nil
+%define Werror_cflags unused-but-set-variable
 #define _disable_ld_no_undefined 1
 
 # configure options
