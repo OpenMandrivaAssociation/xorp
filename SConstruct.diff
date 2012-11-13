@@ -1,0 +1,33 @@
+--- SConstruct.old	2011-03-23 00:03:07.000000000 +0300
++++ SConstruct	2011-04-14 18:51:29.000000000 +0400
+@@ -810,18 +810,18 @@
+ 
+ # Some platforms have alignment warnings that cannot easily be
+ # fixed, so we can't enable Werror for them.
+-if ((build != "i386-pc-mingw32") and
+-    (host_cpu == "i686" or
+-     host_cpu == "i386" or
+-     host_cpu == "x86_64")):
+-        env.AppendUnique(CFLAGS = [
+-	        '-Werror',
+-		])
+-	env.AppendUnique(CXXFLAGS = [
+-		'-Werror',
+-		])
+-else:
+-	print "WARNING:  Detected funky platform, will not enable -Werror compile option: ", host_cpu
++#if ((build != "i386-pc-mingw32") and
++#    (host_cpu == "i686" or
++#     host_cpu == "i386" or
++#     host_cpu == "x86_64")):
++#        env.AppendUnique(CFLAGS = [
++#	        '-Werror',
++#		])
++#	env.AppendUnique(CXXFLAGS = [
++#		'-Werror',
++#		])
++#else:
++#	print "WARNING:  Detected funky platform, will not enable -Werror compile option: ", host_cpu
+ 	
+ 
+ # NOTE: gcc specific flags.

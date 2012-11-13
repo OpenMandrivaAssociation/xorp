@@ -1,0 +1,6 @@
+sources:
+  "xorp-1.8.3.tar.lzma:"	50b48aaab56b9563535b2cadf41f6ad84595acb5
+  "xorp.conf:"	05ef8c0f9e197aa5d3d8b9ab8a4746b1b156745c
+  "xorp.init:"	b09bfa21d76239954dc88edb508e62a4869f908b
+  "xorp.logrotate:"	572307dd587a3872b5737f3ac97ed9d27fe3d4a3
+  "xorp.sysconfig:"	fd8847fe72659de89d588641a0827315d16dc8ec
