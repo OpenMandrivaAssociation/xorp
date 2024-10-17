@@ -15,7 +15,7 @@ Source1:          xorp.init
 Source2:          xorp.sysconfig
 Source3:          xorp.logrotate
 Source4:          xorp.conf
-URL:              http://www.xorp.org
+URL:              https://www.xorp.org
 Buildroot:        %{_tmppath}/xorp-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires:         traceroute
 Requires(pre):    /usr/sbin/groupadd
